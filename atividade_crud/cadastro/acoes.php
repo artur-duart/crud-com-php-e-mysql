@@ -44,5 +44,33 @@ if (isset($_POST['cadastrar'])) {
 
     if (!$result) {
         die(mysqli_error($conn));
+    } 
+}
+
+$cod_pessoa = $_GET["cod_pessoa"];
+
+/*AÇÃO DE EDITAR*/
+if (isset($_POST['editar'])) {
+
+    //CHAMADA DA FUNÇÃO DE VALIDAÇÃO DE ERROS:
+    $erros = validaCampos();
+
+    if (count($erros) > 0) {
+        $_SESSION["erros"] = $erros;
+        header('location: index.php');
+        exit();
+    }
+
+    $nome = $_POST['nome'];
+    $sobrenome = $_POST['sobrenome'];
+    $email = $_POST['email'];
+    $celular = $_POST['celular'];
+
+    $sql = "UPDATE `tbl_pessoa` SET cod_pessoa = '$cod_pessoa' ,nome = '$nome', sobrenome = '$sobrenome', email = '$email', celular = '$celular' WHERE cod_pessoa = $cod_pessoa";
+
+    $result = mysqli_query($conn, $sql);
+
+    if (!$result){
+        die(mysqli_error($conn));
     }
 }

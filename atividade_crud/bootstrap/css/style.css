@@ -1,5 +1,18 @@
-.container-geral {
 
+
+a {
+    color: white;
+    text-decoration: none;
+}   
+
+a:hover {
+    color:white; 
+    text-decoration:none; 
+    cursor:pointer;  
+}
+
+.container-geral {
+    
     width: 100vw;
     height: 100vh;
     display: flex;
