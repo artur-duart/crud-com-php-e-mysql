@@ -1,5 +1,10 @@
 <?php
 
+if (!isset($_SESSION['idUsuario'])) {
+
+    header('location: ../index.php');
+}
+
 include('../componentes/header.php');
 
 require('../database/conexao.php');

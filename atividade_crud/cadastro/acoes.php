@@ -41,7 +41,7 @@ if (isset($_POST['cadastrar'])) {
     VALUES('$nome', '$sobrenome', '$email', '$celular')";
 
     $result = mysqli_query($conn, $sql);
-
+    
     if (!$result) {
         die(mysqli_error($conn));
     } 

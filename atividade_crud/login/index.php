@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 include('../componentes/header.php');
 ?>
 
@@ -19,7 +22,7 @@ include('../componentes/header.php');
             </div>
 
             <div class="form-group">
-                <button class="btn btn-primary" type="submit">LOGAR</button>
+                <button class="btn btn-primary" type="submit" name="logar">LOGAR</button>
             </div>
 
         </form>

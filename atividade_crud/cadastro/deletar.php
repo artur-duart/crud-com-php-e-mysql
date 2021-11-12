@@ -1,4 +1,10 @@
 <?php
+
+if (!isset($_SESSION['idUsuario'])) {
+
+    header('location: ../index.php');
+}
+
 include('../database/conexao.php');
 
 if (isset($_GET['cod_pessoa'])) {
