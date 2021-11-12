@@ -16,31 +16,35 @@
 
 <body>
 
-    <nav class="navbar navbar-dark bg-primary">
-        <a class="navbar-brand" href="">
-            Cadastro
-        </a>
+    <!--< ?php
+    if (isset($_SESSION["usuarioId"])) { ?> -->
 
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="../cadastro">Cadastrar</a>
-            </li>
+        <nav class="navbar navbar-dark bg-primary">
+            <a class="navbar-brand" href="">
+                Cadastro
+            </a>
 
-        </ul>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../cadastro">Cadastrar</a>
+                </li>
 
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="../listagem">Listar</a>
-            </li>
+            </ul>
 
-        </ul>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../listagem">Listar</a>
+                </li>
 
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="../login/">Sair</a>
-            </li>
+            </ul>
 
-        </ul>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../login/" onclick="logout()">Sair</a>
+                </li>
 
+            </ul>
 
-    </nav>
+        <!--< ?php } ?> -->
+
+        </nav>

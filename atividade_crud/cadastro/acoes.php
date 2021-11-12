@@ -47,8 +47,6 @@ if (isset($_POST['cadastrar'])) {
     } 
 }
 
-$cod_pessoa = $_GET["cod_pessoa"];
-
 /*AÇÃO DE EDITAR*/
 if (isset($_POST['editar'])) {
 
@@ -61,6 +59,7 @@ if (isset($_POST['editar'])) {
         exit();
     }
 
+    $cod_pessoa = $_GET["cod_pessoa"];
     $nome = $_POST['nome'];
     $sobrenome = $_POST['sobrenome'];
     $email = $_POST['email'];
