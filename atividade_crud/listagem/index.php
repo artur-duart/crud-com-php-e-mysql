@@ -1,5 +1,10 @@
 <?php
 include('../componentes/header.php');
+include('../database/conexao.php');
+
+$sql = "SELECT * FROM tbl_pessoa";
+
+$result = mysqli_query($conn, $sql);
 ?>
 
 <div class="container">
@@ -20,25 +25,33 @@ include('../componentes/header.php');
         </thead>
 
         <tbody>
-            <tr>
-                <th>1</th>
-                <th>TESTE DE NOME</th>
-                <th>TESTE DE SOBRENOME</th>
-                <th>TESTE DE EMAIL</th>
-                <th>TESTE DE CELULAR</th>
-                <th>
 
-                    <form action="../cadastro/editar.php" method="get" style="display: inline;">
-                        <input type="hidden" name="cod_pessoa" value="<?php echo $resultado["cod_pessoa"] ?>">
-                        <button class="btn btn-warning">Editar</button>
-                    </form>
-                    <form action="" method="post" style="display: inline;">
-                        <input type="hidden" name="id" value="">
-                        <button class="btn btn-danger">Excluir</button>
-                    </form>
+            <?php
+            while ($resultado = mysqli_fetch_array($result)) {
+            ?>
+                <tr>
+                    <th><?php echo $resultado["cod_pessoa"];  ?></th>
+                    <th><?php echo $resultado["nome"];  ?></th>
+                    <th><?php echo $resultado["sobrenome"];  ?></th>
+                    <th><?php echo $resultado["email"];  ?></th>
+                    <th><?php echo $resultado["celular"];  ?></th>
 
-                </th>
-            </tr>
+                    <th>
+                        <form action="../cadastro/editar.php" method="get" style="display: inline;">
+                            <input type="hidden" name="cod_pessoa" value="<?php echo $resultado["cod_pessoa"] ?>">
+                            <button class="btn btn-warning">Editar</button>
+                        </form>
+                        <form action="" method="post" style="display: inline;">
+                            <input type="hidden" name="id" value="">
+                            <button class="btn btn-danger">Excluir</button>
+                        </form>
+                    </th>
+                </tr>
+
+            <?php
+            }
+            ?>
+
         </tbody>
 
     </table>

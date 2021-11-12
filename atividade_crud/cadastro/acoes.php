@@ -20,7 +20,7 @@ function validaCampos()
     return $erros;
 }
 
-//Ação de Cadastro
+/*AÇÃO DE CADASTRO*/
 if (isset($_POST['cadastrar'])) {
 
     //CHAMADA DA FUNÇÃO DE VALIDAÇÃO DE ERROS:
@@ -42,9 +42,7 @@ if (isset($_POST['cadastrar'])) {
 
     $result = mysqli_query($conn, $sql);
 
-    if ($result) {
-        echo "Dados inseridos com sucesso";
-    } else {
+    if (!$result) {
         die(mysqli_error($conn));
     }
 }
