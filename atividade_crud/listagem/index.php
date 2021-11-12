@@ -1,6 +1,7 @@
 <?php
-
-if (!isset($_SESSION['idUsuario'])) {
+session_start();
+// var_dump($_SESSION);exit;
+if (!isset($_SESSION['usuarioId'])) {
 
     header('location: ../index.php');
 }

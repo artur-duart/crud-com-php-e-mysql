@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-include('../database/conexao.php');
 require('../database/conexao.php');
 
 if (empty($_POST['txt_usuario']) || empty($_POST['txt_senha'])) {
@@ -13,6 +12,9 @@ if (empty($_POST['txt_usuario']) || empty($_POST['txt_senha'])) {
 function realizarLogin($usuario, $senha, $conn)
 {
 
+
+    // var_dump($_POST);exit;
+
     $sql = "SELECT * FROM tbl_admin
                 WHERE usuario = '$usuario'";
 
@@ -22,10 +24,12 @@ function realizarLogin($usuario, $senha, $conn)
 
     if (isset($dadosUsuario["usuario"]) && isset($dadosUsuario["senha"]) &&  password_verify($senha, $dadosUsuario["senha"])) {
 
-        $_SESSION["usuarioId"] = $dadosUsuario["id"];
-        $_SESSION["nome"] = $dadosUsuario["nome"];
+
+        $_SESSION["usuarioId"] = $dadosUsuario["idAdmin"];
+        $_SESSION["nome"] = $dadosUsuario["usuario"];
 
         header("location: ../listagem/index.php");
+
     } else {
 
         header("location: ../index.php");
@@ -34,8 +38,8 @@ function realizarLogin($usuario, $senha, $conn)
 
 if (isset($_POST['logar'])) {
 
-    $usuario = $_POST["usuario"];
-    $senha = $_POST["senha"];
+    $usuario = $_POST["txt_usuario"];
+    $senha = $_POST["txt_senha"];
 
     realizarLogin($usuario, $senha, $conn);
 
