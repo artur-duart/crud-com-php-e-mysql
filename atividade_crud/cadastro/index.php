@@ -1,14 +1,18 @@
 <?php
+
 session_start();
 
-if (!isset($_SESSION['idUsuario'])) {
-
-    header('location: ../index.php');
+if (!isset($_SESSION["usuarioId"])) {
+    header("location: ../login/index.php");
 }
 
 include('../componentes/header.php');
-include('../database/conexao.php');
-include('acoes.php');
+
+require('../database/conexao.php');
+
+$sql = "SELECT * FROM tbl_pessoa";
+
+$resultado = mysqli_query($conexao, $sql);
 ?>
 
 
@@ -19,7 +23,8 @@ include('acoes.php');
             <h2>Cadastro</h2>
         </div>
         <div class="card-body">
-            <form method="post" action="">
+            <form method="post" action="../acoes.php">
+                <input type="hidden" name="acoes" value="inserir">
                 <input class="form-control" type="text" placeholder="Digite o nome" name="nome" id="nome" required>
                 <br />
                 <input class="form-control" type="text" placeholder="Digite o sobrenome" name="sobrenome" id="sobrenome" required>
@@ -28,7 +33,7 @@ include('acoes.php');
                 <br />
                 <input class="form-control" type="text" placeholder="Digite celular" name="celular" id="celular" required>
                 <br />
-                <button class="btn btn-success" type="submit" name="cadastrar">CADASTRAR</button>
+                <button class="btn btn-success">CADASTRAR</button>
             </form>
         </div>
     </div>

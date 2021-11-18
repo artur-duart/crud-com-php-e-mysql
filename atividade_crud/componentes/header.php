@@ -16,8 +16,9 @@
 
 <body>
 
-    <!--< ?php
-    if (isset($_SESSION["usuarioId"])) { ?> -->
+    <?php
+    if (isset($_SESSION["usuarioId"])) {
+    ?>
 
         <nav class="navbar navbar-dark bg-primary">
             <a class="navbar-brand" href="">
@@ -40,11 +41,16 @@
 
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="../login/" onclick="logout()">Sair</a>
-                </li>
+                    <form method="POST" action="../processa_login.php">
+                        <input type="hidden" name="acoes" value="logout" />
+                        <button class="btn btn-danger" type="submit">Sair</button>
+                    </form>
 
             </ul>
 
-        <!--< ?php } ?> -->
 
         </nav>
+
+    <?php
+    }
+    ?>

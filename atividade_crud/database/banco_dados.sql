@@ -1,8 +1,8 @@
 #CRIAR O BANCO DE DADOS:
-create database cadastroCrud;
+create database cadastro;
 
 #HABILITAR O BANCO DE DADOS:
-use cadastroCrud;
+use cadastro;
 
 #CRIAR A TABELA DE PESSOAS NO BANCO DE DADOS:
 create table tbl_pessoa(
@@ -11,4 +11,11 @@ create table tbl_pessoa(
     sobrenome varchar(500) not null,
     email varchar(500) not null,
     celular varchar(20) not null
+);
+
+create table tbl_administrador(
+    idAdmin int not null auto_increment primary key,
+    usuario varchar(80) not null,
+    senha varchar(80) not null,
+    unique index(idAdmin)
 );

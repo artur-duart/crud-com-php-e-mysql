@@ -1,8 +1,7 @@
 <?php
 
-// $conn = new mysqli('localhost', 'root', 'Ce425adm42689712890', 'cadastroCrud');
-$conn = new mysqli('localhost', 'root', 'bcd127', 'cadastroCrud');
+$conexao = new mysqli('localhost', 'root', 'Ce425adm42689712890', 'cadastroCrud');
 
-if (!$conn) {
-    die(mysqli_error($conn));
+if (!$conexao) {
+    die(mysqli_error($conexao));
 }
