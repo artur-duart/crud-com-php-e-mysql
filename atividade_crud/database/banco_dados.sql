@@ -13,7 +13,7 @@ create table tbl_pessoa(
     celular varchar(20) not null
 );
 
-create table tbl_administrador(
+create table tbl_admin(
     idAdmin int not null auto_increment primary key,
     usuario varchar(80) not null,
     senha varchar(80) not null,
